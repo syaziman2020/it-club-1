@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itclub_flutter/center_text.dart';
+import 'package:itclub_flutter/page_dua.dart';
+import 'package:itclub_flutter/page_satu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const CenterText(),
+      home: const PageSatu(),
     );
   }
 }

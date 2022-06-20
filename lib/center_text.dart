@@ -12,36 +12,33 @@ class CenterText extends StatelessWidget {
         title: Text('Pertemuan 12'),
         backgroundColor: Color(0xFF37E2D5),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              height: 100,
-              width: 100,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  border: Border.all(width: 10, color: Colors.red),
-                  color: Colors.lightBlue),
-              child: Text('Teks', style: TextStyle(color: Colors.red)),
-            ),
-            Container(
-              height: 40,
-              decoration: BoxDecoration(border: Border.all(width: 2)),
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/flutter-logo.png',
-                    height: 15,
-                  ),
-                  Text('flutter logo')
-                ],
-              ),
-            )
-          ],
+      body: ListView.separated(
+        separatorBuilder: (context, index) => Divider(
+          thickness: 10,
+          color: Colors.black,
         ),
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Container(
+            child: Row(
+              children: [
+                Text(
+                  "${index + 1}",
+                  style: TextStyle(fontSize: 44),
+                ),
+                Icon(
+                  Icons.abc,
+                  size: 100,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text(' Profile saya '), Text('UI UX')],
+                )
+              ],
+            ),
+          );
+        },
+        // scrollDirection: Axis.horizontal,
       ),
     );
   }
