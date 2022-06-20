@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class PageDua extends StatefulWidget {
-  const PageDua({Key? key}) : super(key: key);
+  PageDua({
+    Key? key,
+    required this.textController,
+  }) : super(key: key);
+  String textController;
 
   @override
   State<PageDua> createState() => _PageDuaState();
@@ -9,12 +13,10 @@ class PageDua extends StatefulWidget {
 
 class _PageDuaState extends State<PageDua> {
   int angka = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('DETAILS'),
-      ),
       body: Column(children: [
         Hero(tag: 'details', child: Image.asset('assets/pp.jpg')),
         Padding(
@@ -24,13 +26,25 @@ class _PageDuaState extends State<PageDua> {
             style: TextStyle(fontSize: 24),
           ),
         ),
-        ElevatedButton(
-            onPressed: () {
-              setState(() {
-                angka++;
-              });
-            },
-            child: Text('+++')),
+        TextButton(
+          child: Text('aaaaaaaaaa'),
+          onPressed: (() {}),
+        ),
+        OutlinedButton(onPressed: (() {}), child: Text('outlined button')),
+        SizedBox(
+          height: 100,
+          width: 100,
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  elevation: 20, shadowColor: Colors.green),
+              onPressed: () {
+                print(widget.textController);
+                setState(() {
+                  angka++;
+                });
+              },
+              child: Text('+++')),
+        ),
         Text(
           "${angka}",
           style: TextStyle(fontSize: 33),
